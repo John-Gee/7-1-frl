@@ -217,6 +217,10 @@ _nv_pkg="NVIDIA-Linux-x86_64-${_nv_ver}"
 _nv_open_pkg="NVIDIA-kernel-module-source-${_nv_ver}"
 source=(
     "https://github.com/CachyOS/linux/releases/download/${_srcname}/${_srcname}.tar.gz"{,.asc}
+    "0001-fix-amd-color-manager.patch"
+    "0002-fix-dc-plane-cm-build-error.patch"
+    "hdmi_frl_amdnext.patch"
+    "hdmi_vrr_amdnext.patch"
     "config"
 )
 validpgpkeys=(
@@ -822,5 +826,9 @@ done
 
 b2sums=('d7f63f5c0926d98d27dd9f405dbdcdd0d8cbcf0d07185615edbe62b242a09f2f0074bedfc466e3a43d8e12b15d0d1860f5a6ff89a4b583b81ca677b33d3c0072'
         'SKIP'
-        'a81b1a49b7fd277a8a1395e38696c435489808399527dc49436c9b36940d5c652c523622efe68d34dd191669d8838ab4c041000331279ccf77cdc11dc4baaca2'
+        '892f8120abbdff32fc3270aae5e4c8c63e36c0a97582fd5b82da396b6568e98f44faf521efc1c4c789aed45750b1d9566382dce48818419745fa5c3e896509cb'
+        '93a17579cac4babf9bcaee646463339a184b7194b07e50a21238e5193fcc7fb0514c00bf0fdd16ec0a083f5524f6c39781e5e3229d7add0e4c86e2bfb5358b20'
+        'f56fc1a06f420801410d7669274929e14622d79def0bcd4a55c7c4cf6716930df6e369bc48b7079fd5766e0cf76a315f3b4e51c4e05972568f64018e80e5f16c'
+        'f23478967503970e3701c7fb955a2436716bf75c06cffaa5b741030fb9584d5c1653f200b9e9ec0541c4c86852706ccae188501aef92d6900322c0cd77b9c13e'
+        '6bea8dff89f6d03ee5e7c6b76934e4ffaa3511cebd9c8f9986bf6c11816dcbd88f55c9c686fca6f176c35746f3fa7fc3c286218144d38289ec6f2079f5ce8b42'
         'c992567bd7dd8553432be496ffa1c17e2f5ebe9c7edb51945cf977e1b742dd6517c210d8843bb82744ca705efd07f8027cd7dde41b50215ebd707a34aa81462e')
