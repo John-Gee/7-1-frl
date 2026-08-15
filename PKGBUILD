@@ -175,12 +175,12 @@ fi
 
 pkgbase="linux-$_pkgsuffix"
 _major=7.1
-_minor=5
+_minor=8
 #_minorc=$((_minor+1))
 #_rcver=rc8
 pkgver=${_major}.${_minor}
 _tagrel=1
-pkgrel=2
+pkgrel=1
 _srcname=cachyos-${_major}.${_minor}-${_tagrel}
 pkgdesc='Linux EEVDF + LTO + AutoFDO + Propeller Cachy Sauce Kernel by CachyOS with other patches and improvements.'
 _kernver="$pkgver-$pkgrel"
@@ -217,9 +217,13 @@ _nv_pkg="NVIDIA-Linux-x86_64-${_nv_ver}"
 _nv_open_pkg="NVIDIA-kernel-module-source-${_nv_ver}"
 source=(
     "https://github.com/CachyOS/linux/releases/download/${_srcname}/${_srcname}.tar.gz"{,.asc}
-    "0001-fix-amd-color-manager.patch"
-    "0002-fix-dc-plane-cm-build-error.patch"
     "hdmi_frl_amdnext.patch"
+    "0001-hdmi-frl-lt-timeout.patch"
+    "0002-dmub-extend-wait-dig-phy.patch"
+    "0003-frl-restore-cap-non-destructive-verify.patch"
+    "0004-gate-frl-status-polling.patch"
+    "0005-freesync-12bit-refresh.patch"
+    "0006-frl-ffe-level-defaults.patch"
     "hdmi_vrr_amdnext.patch"
     "config"
 )
@@ -824,11 +828,15 @@ for _p in "${pkgname[@]}"; do
     }"
 done
 
-b2sums=('d7f63f5c0926d98d27dd9f405dbdcdd0d8cbcf0d07185615edbe62b242a09f2f0074bedfc466e3a43d8e12b15d0d1860f5a6ff89a4b583b81ca677b33d3c0072'
+b2sums=('6a198c07f5b3ff24e35972c0c25a30f4ec72ec4b986a926ec57aa3fa045bd72dc15845a3651b134715a1cd5efb62a1bb8800a19dc80cef2e0de70d01245e5eb0'
         'SKIP'
-        '892f8120abbdff32fc3270aae5e4c8c63e36c0a97582fd5b82da396b6568e98f44faf521efc1c4c789aed45750b1d9566382dce48818419745fa5c3e896509cb'
-        '93a17579cac4babf9bcaee646463339a184b7194b07e50a21238e5193fcc7fb0514c00bf0fdd16ec0a083f5524f6c39781e5e3229d7add0e4c86e2bfb5358b20'
         'f56fc1a06f420801410d7669274929e14622d79def0bcd4a55c7c4cf6716930df6e369bc48b7079fd5766e0cf76a315f3b4e51c4e05972568f64018e80e5f16c'
+        '711e21563fde1a4c82752d6f4dfd600066358aabebf252d715443fb7bda2d25ca7f2eb7bfe1da8c979f0012ecb95da931ce6e1e630b24f142103cf94751d8170'
+        '847b1e8004053b13800cf215501715548644ccfb7cc1147225fac09e4b4bfbcec0eca4f650d61143bd9b40bcd0135c25c23d44f12f9f39041a28e689b9cb0f89'
+        '00e71d53c25805c0c700ba97b4a4e94616c19156dbb95594c0f122118dd2bf2c4a6354a3e3b8de88181d38c65c597b2b60c44ab6a73e293fabe6a3c9954a3d3a'
+        '00f9b8a7122543641f1d4627bc38d16f8ed9511f29ecab51625f73d02c913971494953146be1e718beb7fb165cfd9eb99623b9eec0df012d731e27069483e9f3'
+        '081c28d98eb4b80940d977450b97a8a1e3928ad776b8a59cf848b4abe15ea3a04b237e5244eb729611151d31a3c0d565b3026e14b2c90b41d4b45c39b57cf520'
+        'bc4454a02ac89a801a8175364627c382f5ab4274b92d5aeda25bb3d302f9240a24f98498f47a525aff8e2af0aa9c3cb4337f2180bd44dd2ba90c951d499af112'
         'f23478967503970e3701c7fb955a2436716bf75c06cffaa5b741030fb9584d5c1653f200b9e9ec0541c4c86852706ccae188501aef92d6900322c0cd77b9c13e'
-        '6bea8dff89f6d03ee5e7c6b76934e4ffaa3511cebd9c8f9986bf6c11816dcbd88f55c9c686fca6f176c35746f3fa7fc3c286218144d38289ec6f2079f5ce8b42'
+        'a81b1a49b7fd277a8a1395e38696c435489808399527dc49436c9b36940d5c652c523622efe68d34dd191669d8838ab4c041000331279ccf77cdc11dc4baaca2'
         'c992567bd7dd8553432be496ffa1c17e2f5ebe9c7edb51945cf977e1b742dd6517c210d8843bb82744ca705efd07f8027cd7dde41b50215ebd707a34aa81462e')
